@@ -1,0 +1,22 @@
+{
+  "short_name": "JoyAssured",
+  "name": "JoyAssured: Trust & Verification",
+  "icons": [
+    {
+      "src": "192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/index.html",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#8a4af3",
+  "description": "Escrow and verification for household essentials and construction."
+}
