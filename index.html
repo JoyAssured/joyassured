@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JoyAssured | Trust, Verified.</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;700&display=swap" rel="stylesheet">
+    <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#8a4af3">
+<link rel="icon" type="image/png" href="logo.png">
+
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js')
+      .then(() => console.log("JoyAssured PWA Ready"))
+      .catch((err) => console.log("PWA Setup Failed", err));
+  }
+</script>
+
+</head>
+<body class="app-shell">
+   <!--  <nav class="reception-nav">
+        <div class="logo">JoyAssured</div>
+        <div class="nav-right">
+            <a href="#contact" class="nav-link">Contact</a>
+            <button class="login-icon-btn" onclick="openAuth()">
+
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="var(--accent)"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08s5.97 1.09 6 3.08c-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+            </button>
+        </div>
+    </nav>
+
+    <header class="hero-section">
+        <h1 class="fade-in">Build in Africa with <span class="gold-text">Total Peace.</span></h1>
+        <p>The only escrow platform using <strong class="gold-text">AI + GPS</strong> to verify your project milestones before you pay a single shilling.</p>
+        <button class="primary-btn wide" onclick="location.href='client.html'">Secure Your Project Now</button>
+    </header> <!--  -->
+    <nav class="reception-nav">
+    <div class="logo">JoyAssured</div>
+    <div class="nav-links-center">
+        <a href="javascript:void(0)" class="nav-link" onclick="openPopup('aboutModal')">About</a>
+        <a href="javascript:void(0)" class="nav-link" onclick="openPopup('howModal')">How it Works</a>
+    </div>
+    <div class="nav-right">
+        <button class="login-trigger" onclick="openAuth()">Sign In</button>
+    </div>
+</nav>
+
+<div id="aboutModal" class="modal-overlay hidden">
+    <div class="auth-card pop-up">
+        <h2 class="gold-text">Building Trust</h2>
+        <p>JoyAssured is Africa's premier escrow and verification engine. We protect project owners by holding funds and only releasing them when our AI confirms the work is actually done.</p>
+        <button class="primary-btn wide" onclick="closePopup('aboutModal')">Got it</button>
+    </div>
+</div>
+
+<div id="howModal" class="modal-overlay hidden">
+    <div class="auth-card pop-up">
+        <h2 class="gold-text">3 Simple Steps</h2>
+        <div class="step-item"><strong>1. Lock:</strong> Deposit funds into secure escrow.</div>
+        <div class="step-item"><strong>2. Verify:</strong> Worker uploads GPS/Photo evidence.</div>
+        <div class="step-item"><strong>3. Release:</strong> AI verifies work and funds are paid.</div>
+        <button class="primary-btn wide" onclick="closePopup('howModal')" style="margin-top:20px;">Understood</button>
+    </div>
+</div>
+
+    
+    <div id="authModal" class="modal-overlay hidden">
+    <div class="auth-card">
+        <div class="auth-tabs">
+            <button id="loginTab" class="auth-tab active" onclick="switchMode('login')">Log In</button>
+            <button id="signupTab" class="auth-tab" onclick="switchMode('signup')">Sign Up</button>
+        </div>
+        <div id="roleSelection">
+            <div class="role-box" id="roleClient" onclick="selectRole('client')">
+                <h4>Project Owner</h4>
+            </div>
+            <div class="role-box" id="roleWorker" onclick="selectRole('worker')">
+                <h4>Service Professional</h4>
+            </div>
+        </div>
+        <div id="formFields" class="hidden">
+    <input type="text" id="userIdentifier" class="login-input" placeholder="Email or Phone">
+    
+    <button class="primary-btn wide" id="actionBtn" onclick="handleAuth()">Verify</button>
+
+    <div class="social-divider"><span>or</span></div>
+
+    <div class="social-auth">
+        <button class="social-btn" onclick="socialLogin('google')">
+            <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google">
+            Google
+        </button>
+        <button class="social-btn" onclick="socialLogin('apple')">
+            <svg viewBox="0 0 384 512" width="18" fill="white"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+            Apple
+        </button>
+    </div>
+</div>
+ <button class="nav-link" onclick="closeAuth()">Close</button>
+    </div>
+</div>
+
+
+    <section class="features">
+        <div class="glass-card">
+            <h3>🔒 Funds Locked</h3>
+            <p>Your money stays in our secure escrow until the work is done. No more "disappearing" contractors.</p>
+        </div>
+        <div class="glass-card">
+            <h3>🤖 AI Verification</h3>
+            <p>Our system analyzes photos and GPS data to prove materials were delivered and milestones met.</p>
+        </div>
+        <div class="glass-card">
+            <h3>🛡️ Managed Trust</h3>
+            <p>We handle the verification. You just get the results. If it's not right, they don't get paid.</p>
+        </div>
+    </section>
+
+    <footer id="contact" class="reception-footer glass-card">
+        <h3>Talk to the Founder</h3>
+        <p>Ready to secure your Ugandan project? Let's talk.</p>
+        <div class="contact-links">
+            <a href="https://wa.me/256..." class="social-pill">WhatsApp</a>
+            <a href="mailto:..." class="social-pill">Email</a>
+        </div>
+        <p class="small-print">© 2026 JoyAssured. Verified in Kampala.</p>
+    </footer>
+    
+     <a href="https://wa.me/256781887072" class="whatsapp-fab" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>
