@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JoyAssured Admin | Verification Command</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#8a4af3">
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js')
+      .then(() => console.log("JoyAssured PWA Ready"))
+      .catch((err) => console.log("PWA Setup Failed", err));
+  }
+</script>
+
+
+</head>
+<body class="app-shell" style="max-width: 800px;"> <header>
+        <div class="logo">JoyAssured <span style="color: var(--text-muted); font-weight: 400;">Admin</span></div>
+        <div id="connectionStatus" class="status-tag" style="background: #e1f5fe; color: #0288d1;">LIVE OVERSIGHT</div>
+    </header>
+    
+    <section id="adminProjectList" style="padding: 20px; display: grid; gap: 20px;">
+    </section>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
